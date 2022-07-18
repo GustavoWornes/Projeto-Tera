@@ -1,0 +1,59 @@
+/* Nav bar */
+
+@media only screen and (max-width: 768px) {
+    /* BREAKPOINT PARA CELULARES: */
+    [class*="col-"] {
+      width: 100%;
+    }
+   }
+/* Fim Menu Dropdown */
+
+/* Inicio Area de login */
+.container.container-login{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container.container-login div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Fim Area de login */
+/*Inicio Pagina criar conta */
+.container.container.containerCriarConta{
+
+padding: 50px;
+}
+
+
+/* Fim pagina criar conta */
+/* Inicio carrinho */
+/* Fim carrinho */
+.table{
+    background-color: rgb(255, 255, 255);
+    border:1px  black;
+    width:100%;
+    padding:20px
+}
+.lista{
+    display: inline-block;
+    position: relative;
+    
+    
+   
+}
+
+.col-sm-4{
+    height: 516px;
+    text-align: center;
+    width: 860px;
+}
+.col-sm-4 img{
+    margin-top: 70px;
+
+}
+.carousel-inner img{
+    max-width: 500px;
+    margin-top: 45px;
+}
+/* Fim nav bar */
