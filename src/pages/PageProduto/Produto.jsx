@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import {api} from "../../Services/services"
-import axios from "axios";
 import { CartContext } from "../../contexts/auth";
 import { utils } from "../../utils";
 import "./style.css"

@@ -7,10 +7,11 @@ import { message } from 'antd';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import "./style.css"
 const PageLogin = () => {
+  // eslint-disable-next-line
   const { authenticated } = useContext(CartContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const login = async (email, password) => {
 
     try {

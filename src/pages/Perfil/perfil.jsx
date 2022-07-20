@@ -45,10 +45,11 @@ const tailFormItemLayout = {
 const PerfilUser = () => {
 
     const [user, setUser] = useState([])
+    // eslint-disable-next-line
     const { id } = useParams()
 
     useEffect(() => {
-
+        // eslint-disable-next-line
         api.get(`/perfil/${id}`).then(({ data }) => {
             setUser(data)
         });
