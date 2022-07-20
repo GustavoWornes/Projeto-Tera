@@ -49,7 +49,7 @@ const PageLogin = () => {
     message.loading({ content: 'Loading...', key });
     setTimeout(() => {
       message.success({ content: 'Loaded!', key, duration: 2 });
-      window.location.href = "http://localhost:3000/"
+      window.location.href = "https://main--kaleidoscopic-kitten-fff223.netlify.app/"
     }, 1000);
   };
 
