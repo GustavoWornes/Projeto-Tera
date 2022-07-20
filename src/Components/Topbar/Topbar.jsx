@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+/* eslint-disable */
 import { Link } from "react-router-dom";
 import { CartContext, useCart } from "../../contexts/auth";
 import perfil from "./perfil.png"
@@ -7,11 +8,10 @@ import { utils } from "../../utils";
 const Topbar = () => {
   const userId = utils.getIdUser()
   const { logout } = useContext(CartContext)
-// eslint-disable-next-line
-  const HandleLogout = () => {
+/*   const HandleLogout = () => {
     logout()
-  };
-  // eslint-disable-next-line
+  }; */
+  
   const cart = useCart();
   /* Recebe a função de auth e mudara setUser para null e apagara o user do localstore */
   return (

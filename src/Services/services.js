@@ -1,4 +1,5 @@
 import axios from "axios";
+/* eslint-disable */
 import { utils } from "../utils";
 const idUser = utils.getIdUser()
 const idProduto = utils.getIdProduct()
@@ -7,7 +8,7 @@ export const api = axios.create({ baseURL: "https://86moxy22dl.execute-api.us-ea
 
 
 export const createSession = async (email, password) => {
-    return api.get("/login", { email, password })
+    return api.post("/login", { email, password })
 };
 
 export const updateUser = async (name, sobrenome, email, password, cep, logradouro, bairro, uf) => {

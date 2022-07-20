@@ -6,7 +6,7 @@ import {
     Checkbox,
     Button
 } from 'antd';
-
+/* eslint-disable */
 import 'antd/dist/antd.css';
 import { userRegistration } from '../../Services/services';
 import { utils } from '../../utils';

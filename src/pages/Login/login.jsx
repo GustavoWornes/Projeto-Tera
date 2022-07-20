@@ -64,7 +64,6 @@ const PageLogin = () => {
     <main>
       <Container id={Container}>
         <Row>
-          <elemento className="Container"></elemento>
           <Col>
             <Form onSubmit={handleSubmit}>
 

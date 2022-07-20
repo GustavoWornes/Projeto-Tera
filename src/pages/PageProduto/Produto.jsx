@@ -5,7 +5,7 @@ import { CartContext } from "../../contexts/auth";
 import { utils } from "../../utils";
 import "./style.css"
 import "bootstrap"
-
+/* eslint-disable */
 const BodyPageProduto = () =>{
   const [product,setProduct] = useState([]);
   const {id} = useParams()
@@ -73,8 +73,8 @@ console.log("console.log name",product.name)
               </span>
               <p className="text">Cor:{product.cor}</p>
               <label htmlFor="inputDoTamanho">Tamanho</label>
-              <select id="inputDoTamanho" className="form-control">
-                <option selected>Escolha Uma Opção...</option>
+              <select id="inputDoTamanho" className="form-control" defaultValue={40}>
+                <option selected key={0}>Escolha Uma Opção...</option>
                 <option value={0}>35</option>
                 <option value={1}>36</option>
                 <option value={3}>37</option>
@@ -88,7 +88,7 @@ console.log("console.log name",product.name)
                 <option value={11}>45</option>
               </select>
               <br />
-              <button type="button" id="comprar" data-testeid="add-product-button" className="btn btn-pill btn-dark" reqi
+              <button type="button" id="comprar" data-testeid="add-product-button" className="btn btn-pill btn-dark" 
               onClick={add(product)}
               >Adicionar no carrinho</button>
             </div>
