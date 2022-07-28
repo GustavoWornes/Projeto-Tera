@@ -3,9 +3,9 @@ import axios from "axios";
 import { utils } from "../utils";
 const idUser = utils.getIdUser()
 const idProduto = utils.getIdProduct()
-export const api = axios.create({ baseURL: "https://86moxy22dl.execute-api.us-east-1.amazonaws.com/Dev/data" })
+export const api = axios.create({ baseURL: " https://wornesteste.herokuapp.com" })
 //export const api = axios.create({ baseURL: "https://86moxy22dl.execute-api.us-east-1.amazonaws.com/Dev/data" })
-
+/* https://wornesteste.herokuapp.com */
 
 export const createSession = async (email, password) => {
     return api.post("/login", { email, password })

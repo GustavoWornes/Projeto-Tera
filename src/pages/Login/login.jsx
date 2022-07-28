@@ -7,11 +7,10 @@ import { message } from 'antd';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import "./style.css"
 const PageLogin = () => {
-  // eslint-disable-next-line
   const { authenticated } = useContext(CartContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const login = async (email, password) => {
 
     try {
@@ -49,7 +48,7 @@ const PageLogin = () => {
     message.loading({ content: 'Loading...', key });
     setTimeout(() => {
       message.success({ content: 'Loaded!', key, duration: 2 });
-      window.location.href = "https://main--kaleidoscopic-kitten-fff223.netlify.app/"
+      window.location.href = "http://maratonistas.s3-website-us-east-1.amazonaws.com/"
     }, 1000);
   };
 
@@ -64,6 +63,7 @@ const PageLogin = () => {
     <main>
       <Container id={Container}>
         <Row>
+          <elemento className="Container"></elemento>
           <Col>
             <Form onSubmit={handleSubmit}>
 
