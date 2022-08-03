@@ -15,6 +15,7 @@ import { utils } from "../utils"
 import Perfil from "../pages/Perfil"
 import { CartProvider } from "../contexts/auth"
 import Cadastro from "../pages/Cadastro"
+import Loading from "../Components/Loading/loading"
 
 const AppRoutes = () => {
     const Private = ({ children }) => {
@@ -34,11 +35,14 @@ const AppRoutes = () => {
                     <Route exact path={'/'}>
                         <HomePage />
                     </Route>
+                    <Route path={'/teste'}>
+                        <Loading />
+                    </Route>
                     <Route path={'/login'}>
                         <LoginUser />
                     </Route>
                     <Route path={'/carrinho'} >
-                        <PageCarrinho />
+                        <Private><PageCarrinho /></Private>
                     </Route>
                     <Route path={'/perfil/:id'}  search="?:id">
                         <Private><Perfil /></Private>
