@@ -4,12 +4,14 @@ import {
     Input,
     Select,
     Checkbox,
-    Button
+    Button,
+    InputNumber
 } from 'antd';
 
 import 'antd/dist/antd.css';
 import { userRegistration } from '../../Services/services';
 import { utils } from '../../utils';
+
 const { Option } = Select;
 
 const formItemLayout = {
@@ -57,8 +59,9 @@ const FormCadastro = () => {
         const response = await userRegistration(name, sobrenome, email, password, cep, logradouro, bairro, uf)
         console.log(response)
         utils.notificationRegister()
+        
     }
-    
+
 
 
     return (
@@ -87,7 +90,7 @@ const FormCadastro = () => {
                 }
                 ]}
             >
-                <Input />
+                <Input maxLength={20} minLength={3} />
             </Form.Item>
 
 
@@ -107,7 +110,7 @@ const FormCadastro = () => {
                         message: 'Nome não pode exceder 20 caracteres',
                     },
                 ]}>
-                <Input /> 
+                <Input maxLength={20} minLength={5} /> 
             </Form.Item>
 
             <Form.Item
@@ -116,23 +119,23 @@ const FormCadastro = () => {
                 rules={[
                     {
                         type: 'email',
-                        message: 'Email inválido',
+                        message: 'Email inválido!',
                     },
                     {
                         required: true,
                         message: 'Coloque seu email!',
                     },
                     {
-                        min: 5,
-                        message: 'Email é muito curto'
+                        min: 12,
+                        message: 'Email é muito curto!'
                     },
                     {
                         max: 50,
-                        message: 'Esse email excedeu o número de caracteres'
+                        message: 'Esse email excedeu o número de caracteres!'
                     }
                 ]}
             >
-                <Input />
+                <Input maxLength={50} minLength={12} />
             </Form.Item>
 
             <Form.Item
@@ -178,23 +181,13 @@ const FormCadastro = () => {
                 <Input.Password />
             </Form.Item>
             <Form.Item name="cep"
-                label="Cep "
-                
+                label="Cep"
                 rules={[{
-                   
                     required: true,
                     message: 'Não pode deixar em branco !',
-                },
-                {
-                    min: 7,
-                    message: 'Cep inválido, Usar Somente numeros'
-                },
-                {
-                    max: 9,
-                    message: 'Cep inválido, Usar Somente numeros'
                 }
                 ]}>
-                <Input />
+                <InputNumber showCount maxLength={9} minLength={7} min={0}/>
             </Form.Item>
             <Form.Item name="logradouro"
                 label="Logradouro"
@@ -297,13 +290,13 @@ const FormCadastro = () => {
                 rules={[
                     {
                         validator: (_, value) =>
-                            value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+                            value ? Promise.resolve() : Promise.reject(new Error('Aceite os termos de uso')),
                     },
                 ]}
                 {...tailFormItemLayout}
             >
                 <Checkbox>
-                    I have read the <a href="">agreement</a>
+                    Aceito os  <a href="">Termos</a> de uso
                 </Checkbox>
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>

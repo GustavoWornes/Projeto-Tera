@@ -73,9 +73,9 @@ export const notificationCart = type => {
         message: 'Cadastrado com sucesso!!',
         description: '',
       });
-      setTimeout(()=>{
-        window.location.reload()
-    },2000)
+    setTimeout(() => {
+            window.location.href = "https://projeto-tera.vercel.app/login"
+          }, 1500);
    
   };
 export const notificationLogout =() =>{
