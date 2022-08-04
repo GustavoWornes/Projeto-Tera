@@ -24,7 +24,6 @@ const PageLogin = () => {
       utils.setIdUser(userId)
       utils.setToken(token)
       utils.setUser(loggedUser)
-      authenticated = true
       /* Guardando o usuario no localStore para manter ele logado mesmo recarrecando a pagina 
       e transformando usuario logado em objeto para o localStorre armazenar
       */
