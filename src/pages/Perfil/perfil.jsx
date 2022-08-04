@@ -10,6 +10,7 @@ import {
 } from 'antd';
 import { updateUser } from "../../Services/services"
 import 'antd/dist/antd.css';
+import Loading from "../../Components/Loading/loading";
 /* eslint-disable */
 const { Option } = Select;
 const formItemLayout = {
@@ -44,7 +45,7 @@ const tailFormItemLayout = {
 };
 
 const PerfilUser = () => {
-
+    const [loading,setLoading] = useState(false)
     const [user, setUser] = useState([])
     // eslint-disable-next-line
     const { id } = useParams()
@@ -53,11 +54,8 @@ const PerfilUser = () => {
         // eslint-disable-next-line
         api.get(`/perfil/${id}`).then(({ data }) => {
             setUser(data)
+            setLoading(true)
         });
-      
-       
-
-
     }, [])
 
     const [form] = Form.useForm();
@@ -102,15 +100,16 @@ const PerfilUser = () => {
         bairro: `${user.bairro}`,
         localidade: `${user.logradouro}`,
         uf: `${user.uf}`
+        
     }
-
+    
     return (
         <div>
-            <div>
-                <h1></h1>
+            <div><br></br>
                 {/* 
                 {JSON.stringify(user, null, 2)} */}
-                <Form
+                {loading ? (
+                    <Form
 
                     {...formItemLayout}
                     form={form}
@@ -355,6 +354,7 @@ const PerfilUser = () => {
                     </Form.Item>
 
                 </Form>
+                ):<Loading />}
             </div>
 
         </div>

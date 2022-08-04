@@ -70,7 +70,7 @@ const FormCadastro = () => {
             onFinish={onFinish}
             
             scrollToFirstError
-        ><h1></h1>
+        ><br/><br/>
             <Form.Item name="name"
                 label="Nome"
                 rules={[{

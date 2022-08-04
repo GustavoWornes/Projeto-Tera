@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Loading.css"
 import {LoadingOutlined} from '@ant-design/icons';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

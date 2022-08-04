@@ -7,14 +7,19 @@ import Loading from "../../Components/Loading/loading"
 import "./style.css"
 import "bootstrap"
 const BodyPageProduto = () =>{
+  const { authenticated } = useContext(CartContext);
   const [product,setProduct] = useState([]);
   const {id} = useParams()
   const cart = useContext(CartContext)
   const [removeLoading, setRemoveLoading] = useState(false)
   const [carrosel,setCarrosel] = useState()
   const add = (product) => () =>{
-      cart.addToCart(product)
-      utils.notificationCart()
+      if(authenticated === true){
+        cart.addToCart(product)
+       utils.notificationCart()
+      }else{
+        utils.loggedUserRequired()
+      }
   }
   useEffect(()=>{
    
@@ -31,7 +36,7 @@ console.log("Console.log Produto",product)
 console.log("console.log name",product.name)
 
     return(
-      <main> 
+      <main> <br/> <br/>
         {removeLoading ? (
                <><div className="container">
             <div className="row">
@@ -74,7 +79,7 @@ console.log("console.log name",product.name)
                 </span>
                 <p className="text">Cor:{product.cor}</p>
                 <label htmlFor="inputDoTamanho">Tamanho</label>
-                <select id="inputDoTamanho" className="form-control">
+                <select id="inputDoTamanho" className="form-control" required>
                   <option selected>Escolha Uma Opção...</option>
                   <option value={0}>35</option>
                   <option value={1}>36</option>

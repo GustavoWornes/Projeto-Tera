@@ -114,4 +114,7 @@ export const updatedProduct =() =>{
     },1500)
 }
 
+export const loggedUserRequired = () =>{
+    message.error('Obrigatorio estar logado para usar o carinho!');
+}
 

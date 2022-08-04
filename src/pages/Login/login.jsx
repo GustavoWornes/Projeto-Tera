@@ -24,6 +24,7 @@ const PageLogin = () => {
       utils.setIdUser(userId)
       utils.setToken(token)
       utils.setUser(loggedUser)
+      authenticated = true
       /* Guardando o usuario no localStore para manter ele logado mesmo recarrecando a pagina 
       e transformando usuario logado em objeto para o localStorre armazenar
       */
@@ -48,7 +49,7 @@ const PageLogin = () => {
     message.loading({ content: 'Loading...', key });
     setTimeout(() => {
       message.success({ content: 'Loaded!', key, duration: 2 });
-      window.location.href = "http://maratonistas.s3-website-us-east-1.amazonaws.com/"
+      window.location.href = "http://localhost:3000/"
     }, 1000);
   };
 

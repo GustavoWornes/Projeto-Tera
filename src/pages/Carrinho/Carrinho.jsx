@@ -4,12 +4,12 @@ import { utils } from "../../utils"
 import "./style.css"
 const CarrinhoUser = () => {
   const cart = useCart()
-  const [button,setButton] = useState(true)
-  
-  const TesteButton = () =>{
-    if(utils.getTotal() >= 400){
+  const [button, setButton] = useState(true)
+
+  const TesteButton = () => {
+    if (utils.getTotal() >= 400) {
       setButton(false)
-    }else{
+    } else {
       setButton(true)
       setButton(true)
     }
@@ -19,13 +19,19 @@ const CarrinhoUser = () => {
     cart.removeToCart(id)
   }
   const changeQtd = (id) => (event) => {
-    cart.changeQtd(id, event.target.value)
+    if (event.target.value > 0) {
+      cart.changeQtd(id, event.target.value)
+    } else {
+      const teste = 1
+      cart.changeQtd(id, teste)
+    }
     TesteButton()
   }
   function Pagamento(event) {
     event.preventDefault();
     window.open("https://www.paypal.com/signin", "minhaJanela", "height=500,width=500");
-}
+  }
+
   /* 
     usar onchange no subtotal para toda vez que ouver mudança alterar e atualizar valor total
   */
@@ -58,16 +64,16 @@ const CarrinhoUser = () => {
                 <tbody>
                   {Object.keys(cart.cart).map(key => {
                     const product = cart.cart[key].product
-                  
-                   /*  let Somas = cart.cart[key].product.precoProduto * cart.cart[key].quantity */
+
+                    /*  let Somas = cart.cart[key].product.precoProduto * cart.cart[key].quantity */
                     const SomaTotal = cart.cart[key].product.precoProduto * cart.cart[key].quantity
-              
+
                     return (
                       <tr key={key}>
                         <th className="item">
                           <img src={product.img_um} alt={product.descricao}
                             width="150px" height="auto" />
-                         {/*  <pre>{JSON.stringify(cart.cart[key].product.name, null, 2)}</pre> */}
+                          {/*  <pre>{JSON.stringify(cart.cart[key].product.name, null, 2)}</pre> */}
 
                         </th>
                         <th>
@@ -75,20 +81,20 @@ const CarrinhoUser = () => {
                           <button type="submit" className="btn btn-primary" onClick={remove(key)}>Remover</button>
                         </th>
                         <th className="qtd">
-                          <input onBlur={changeQtd(key)} type="number" id="qtd" defaultValue={cart.cart[key].quantity} alt={product.name}/>
+                          <input onBlur={changeQtd(key)} type="number" id="qtd" min={1} defaultValue={cart.cart[key].quantity} alt={product.name} />
                         </th>
                         <th className="preco">
-                         <p> <span>{product.precoproduto}</span></p>
+                          <p> <span>{product.precoproduto}</span></p>
 
                         </th>
                         <th className="total">
                           <span>{SomaTotal}</span>
-                         
+
                         </th>
                       </tr>
                     )
                   })}
-                 
+
                 </tbody>
               </table>
             </div>
@@ -105,7 +111,7 @@ const CarrinhoUser = () => {
                 <div>
                   <h5>Correios</h5>
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1" defaultChecked />
+                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1" />
                     <label className="form-check-label" htmlFor="exampleRadios1">
                       <p> Sedex - entrega em 5 dias uteis. </p><span></span>
                     </label>
@@ -117,7 +123,7 @@ const CarrinhoUser = () => {
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" defaultValue="option2" disabled={button} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" defaultValue="option2" defaultChecked />
                     <label className="form-check-label" htmlFor="exampleRadios3">
                       <p>Frete Gratis</p>
                     </label>
@@ -139,16 +145,17 @@ const CarrinhoUser = () => {
                   <div className="divisao" />
 
                   <h2>Total:R${utils.getTotal()} </h2>
-                  <button className="btn btn-primary"  onClick={(event) => Pagamento(event)}>Finalizar pedido</button>
+                  <button className="btn btn-primary" onClick={(event) => Pagamento(event)}>Finalizar pedido</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-      </section></main>
+      </section>
+    </main>
   )
 
- 
+
 }
 
 
