@@ -17,8 +17,6 @@ const BodyPageProduto = () =>{
       if(authenticated === true){
         cart.addToCart(product)
        utils.notificationCart()
-      }else{
-        utils.loggedUserRequired()
       }
   }
   useEffect(()=>{
