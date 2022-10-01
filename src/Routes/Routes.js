@@ -42,7 +42,7 @@ const AppRoutes = () => {
                         <LoginUser />
                     </Route>
                     <Route path={'/carrinho'} >
-                        <Private><PageCarrinho /></Private>
+                        <PageCarrinho /
                     </Route>
                     <Route path={'/perfil/:id'}  search="?:id">
                         <Private><Perfil /></Private>
