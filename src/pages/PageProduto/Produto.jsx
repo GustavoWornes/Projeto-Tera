@@ -14,10 +14,10 @@ const BodyPageProduto = () =>{
   const [removeLoading, setRemoveLoading] = useState(false)
   const [carrosel,setCarrosel] = useState()
   const add = (product) => () =>{
-      if(authenticated === true){
+  
         cart.addToCart(product)
        utils.notificationCart()
-      }
+      
   }
   useEffect(()=>{
    
