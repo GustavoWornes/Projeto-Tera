@@ -49,7 +49,7 @@ const Footer = () =>(
         </section>
         <section>
             <div className="text-center p-4" id="Copyright">
-                <h6> © 2022 Copyright:Wornes</h6>
+                <h6> © 2022 Copyright : Teste</h6>
             </div>
         </section>
     </footer>
