@@ -9,10 +9,13 @@ import "bootstrap"
 const BodyPageProduto = () =>{
   const { authenticated } = useContext(CartContext);
   const [product,setProduct] = useState([]);
-  const {id} = useParams()
-  const cart = useContext(CartContext)
-  const [removeLoading, setRemoveLoading] = useState(false)
-  const [carrosel,setCarrosel] = useState()
+  const {id} = useParams();
+  const cart = useContext(CartContext);
+  const [removeLoading, setRemoveLoading] = useState(false);
+  const [carrosel,setCarrosel] = useState();
+  const [matches,setMatches] = useState(
+    window.matchMedia("(min-width: 768px").matches
+  );
   const add = (product) => () =>{
   
         cart.addToCart(product)
@@ -20,14 +23,16 @@ const BodyPageProduto = () =>{
       
   }
   useEffect(()=>{
-   
+    
     api.get(`/product/${id}`).then(({data}) =>{
       setProduct(data)
       setCarrosel(data.img_principal)
       setRemoveLoading(true)
     });
     console.log("Esse é o id",id)
-    
+    window
+      .matchMedia("(min-width: 1000px)")
+      .addEventListener('change',e=>setMatches(e.matches));
     
   },[id])
 console.log("Console.log Produto",product)
@@ -37,8 +42,8 @@ console.log("console.log name",product.name)
       <main> <br/> <br/>
         {removeLoading ? (
                <><div className="container">
-            <div className="row">
-              <div className="col-sm-1">
+            <div className="row text-center">
+              {matches && (<div className="col-sm-1">
                 <div className="miniproduto">
 
                   <img id="Img-um" alt={product.name} style={{ width: '100px' }}
@@ -57,9 +62,9 @@ console.log("console.log name",product.name)
                     src={`${product.img_quatro}`} onClick={(event) => setCarrosel(event.target.src)} />
                 </div>
 
-              </div>
-
-              <div className="col-sm-7">
+              </div>)}
+              
+              <div className="col-md-7">
                 <img src={`${carrosel}`} alt={product.name} id="imagem" />
               </div>
               {/* <div class="w-100"></div>

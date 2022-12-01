@@ -81,7 +81,7 @@ const CarrinhoUser = () => {
                           <button type="submit" className="btn btn-primary" onClick={remove(key)}>Remover</button>
                         </th>
                         <th className="qtd">
-                          <input onBlur={changeQtd(key)} type="number" id="qtd" min={1} defaultValue={cart.cart[key].quantity} alt={product.name} />
+                          <input onBlur={changeQtd(key)} type="number" id="qtd" min={1}  max={10} defaultValue={cart.cart[key].quantity} alt={product.name} />
                         </th>
                         <th className="preco">
                           <p> <span>{product.precoproduto}</span></p>
@@ -100,7 +100,6 @@ const CarrinhoUser = () => {
             </div>
             <div className="col-sm-3">
               <form>
-
                 <div className="form-group">
                   <h5>Resumo da compra</h5>
                 </div>

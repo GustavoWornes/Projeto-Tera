@@ -1,8 +1,7 @@
 #imagem{
-    width:540px;
+    width:80%;
     height:393px;
-    margin:30px
-    
+    margin:30px;
 }
 .Produtos {
     opacity: 0; /* Esconde no desktop. */
